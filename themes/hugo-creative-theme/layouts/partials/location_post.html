@@ -1,0 +1,16 @@
+
+{{ if .Params.location }}
+<aside class="bg-dark" id="carte">
+<section id="location" class="no-padding">
+    <h2>Nous rejoindre</h2>
+    <hr><br>
+    <div id="map">
+        <p class="osm_map">
+            <iframe height="350"; style="height: 350; width: 100%; align: center" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ .Params.location.link }}" style="border: 1px solid black"></iframe>
+            <br/>
+            <small><a href="{{ .Params.location.ref }}" style="color:grey;">Agrandir la carte</a></small>
+        </p>
+    </div>
+</section>
+</aside>
+{{ end }}

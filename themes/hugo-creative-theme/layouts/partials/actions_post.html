@@ -1,0 +1,32 @@
+<!-- ACTIONS -->
+{{ if .Params.action }}
+<section id="actions">
+    
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <h2 class="section-heading">Actualités</h2>
+                  <hr class="primary">
+                  <div class="text-justify">
+                     {{ .Content }}
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+  </section>
+{{ else }}
+<section id="actions">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <div class="text-justify">
+                       {{ .Content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+{{ end }}

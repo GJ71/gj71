@@ -1,0 +1,35 @@
+        {{ if .Params.action }}
+
+            <!-- SERVICES -->
+            <section id="services">
+    
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-12 text-center">
+                              <h2 class="section-heading">Comptes-rendus</h2>
+                              <hr class="primary">
+                          </div>
+                      </div>
+                  </div>
+              
+              <div class="container">
+                  <div class="row">
+
+                     {{ $url := .Site.BaseURL }}
+
+                     {{ range $key, $val := .Params.cr }}
+                     <div class="col-lg-3 col-md-6 text-center">
+                           <div class="service-box">
+                                 <a href="{{ $url }}pdf/{{ $val }}"><i class="fa fa-4x fa-file-pdf-o wow bounceIn text-primary"></i></a>
+                                 <h3><a href="{{ $url }}pdf/{{ $val }}">CR-{{ $key }}</a></h3>
+
+                                 <p class="text-muted">Compte-rendu du {{ $key }}</p>
+
+                           </div>
+                       </div>
+                     {{ end }}
+                      
+                  </div>
+              </div>
+          </section>
+    {{ end }}

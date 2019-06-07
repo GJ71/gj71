@@ -1,0 +1,13 @@
+{{ if .Site.Params.newsletter }}
+<section id="newsletter" class="bg-dark">
+   <div class="container text-center">
+      <h2 class="section-heading">{{ .Site.Params.newsletter.title }}</h2>
+      <hr class="primary">
+      <div class="call-to-action">
+      <div data-mailtrain-subscription-widget data-url="{{ .Site.Params.newsletter.widget }}">
+            <a class="btn btn-default btn-xl wow tada" href="{{ .Site.Params.newsletter.url }}">S'inscrire</a>
+      </div>
+      </div>
+   </div>
+</section>
+{{ end }}

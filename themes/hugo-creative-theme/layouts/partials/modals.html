@@ -1,0 +1,101 @@
+{{ "<!-- Portfolio Modals -->" | safeHTML }}
+{{ range .Site.Data.projects }}
+<div class="portfolio-modal modal fade" id="portfolioModal{{ .modalID }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        {{ with .title }}
+                            <h2>{{ . }}</h2>
+                        {{ end }}
+                        {{ if and .title .description }}
+                            <hr class="star-primary">
+                        {{ end }}
+                        <img src="img/portfolio/{{ .img }}" class="img-responsive img-centered" alt="">
+                        {{ with .description }}
+                        <div style="text-align: left;">
+                            <p>{{ . | markdownify }}</p>
+                        </div>
+                        {{ end }}
+                        {{ if .slider }}
+                        <div id="slider">
+                                <h3>{{ .slider.title }}</h3>
+                                <ul class="testul">
+                                    <li class="testli" id="controle1"><img class="testa" width=5px; height=5px; src="https://raw.githubusercontent.com/okmr-d/okmr-d.github.io/master/img/DOFavoriteButton/flatIconImage.png" /></li>
+                                    <li class="testli" id="controle2"><img class="testa" width=5px; height=5px; src="https://raw.githubusercontent.com/okmr-d/okmr-d.github.io/master/img/DOFavoriteButton/flatIconImage.png" /></li>
+                                    <li class="testli" id="controle3"><img class="testa" width=5px; height=5px; src="https://raw.githubusercontent.com/okmr-d/okmr-d.github.io/master/img/DOFavoriteButton/flatIconImage.png" /></li>
+                                    <li class="testli" id="controle4"><img class="testa" width=5px; height=5px; src="https://raw.githubusercontent.com/okmr-d/okmr-d.github.io/master/img/DOFavoriteButton/flatIconImage.png" /></li>
+                                    <!--<li class="testli" id="controle1"><a class="testa" href="#">•</a></li>
+                                    <li class="testli" id="controle2"><a class="testa" href="#">•</a></li>
+                                    <li class="testli" id="controle3"><a class="testa" href="#">•</a></li>-->
+                                </ul>
+                                
+                                <div id="1" class="hidevid">
+                                  <iframe id="player" type="text/html" width="420" height="315"
+                                        src="{{ .slider.vid1 }}"
+                                        frameborder="0"></iframe>
+                                </div>
+                                
+                                <div id="2" class="hidevid">
+                                  <iframe id="player" type="text/html" width="420" height="315"
+                                        src="{{ .slider.vid2 }}"
+                                        frameborder="0"></iframe>
+                                </div>
+                                
+                                <div id="3" class="hidevid">
+                                    <iframe id="player" type="text/html" width="420" height="315"
+                                        src="{{ .slider.vid3 }}"
+                                        frameborder="0"></iframe>
+                                </div>
+
+                                <div id="4" class="hidevid">
+                                    <iframe id="player" type="text/html" width="420" height="315"
+                                        src="{{ .slider.vid4 }}"
+                                        frameborder="0"></iframe>
+                                </div>
+                                
+                        </div>
+                        {{ end }}
+                        {{ if .video }}
+                            <div>
+                                <iframe width="420" height="315"
+                                    src="{{ .video }}">
+                                </iframe>
+                            </div>
+                        {{ end }}
+                        {{ if or .client .date .category }}
+                            <ul class="list-inline item-details">
+                                {{ if .client }}
+                                    <li>{{ with $.Site.Params.portfolio.modal.client }}{{.}}: {{ end }}
+                                        <strong><a href="{{ with .clientLink }}{{ . }}{{ else }}#{{ end }}">{{ .client }}</a></strong>
+                                    </li>
+                                {{ end }}
+                                {{ if .date }}
+                                    <li>{{ with $.Site.Params.portfolio.modal.date }}{{.}}: {{ end }}
+                                        <strong><a href="#">{{ .date }}</a></strong>
+                                    </li>
+                                {{ end }}
+                                {{ if .category }}
+                                    <li>{{ with $.Site.Params.portfolio.modal.category }}{{.}}: {{ end }}
+                                        <strong><a href="#">{{ .category }}</a></strong>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        {{ end }}
+                        {{ with $.Site.Params.portfolio.modal.buttonText }}
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>{{.}}</button>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

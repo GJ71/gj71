@@ -1,0 +1,11 @@
+{{ if .Params.agenda }}
+<section id="agenda" class="no-padding">
+      <div class="container text-center">
+         <h2 class="section-heading">{{ .Site.Params.agenda.title }}</h2>
+         <hr class="primary">
+         <div class="wow bounceIn">
+            <div id="calendar"></div>
+         </div>
+      </div>
+</section>
+{{ end }}

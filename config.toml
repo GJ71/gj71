@@ -1,0 +1,138 @@
+#baseurl = "https://gilets-jaunes71.fr/"
+baseurl = "http://localhost:1313/"
+languageCode = "fr-fr"
+title = "Gilets Jaunes de Saône-et-Loire"
+theme = "hugo-creative-theme"
+#googleAnalytics = ""
+enableEmoji = true
+
+
+[params]
+
+	# You can use Markdown syntax for urls [text](//url.to/source) for
+	# most longer texts.
+
+	# All icons using Fontawesome's icon font. Look at http://fontawesome.io/icons/
+	# for more icons. The icons are represented by their corresponding
+	# CSS class.
+
+	# All projects of the portfolio are defined in their own files.
+	# You can find example projects at 'exampleSite/data/projects'. Copy the 'projects'
+	# folder into the 'data' directory at the root of this Hugo site.
+	# For more information take a look at the README.
+
+	# To provide some metadata for search engines feel free to add some
+	# information about you and your website.
+	name = "gilets-jaunes-71"
+	description = "Les gilets jaunes de Saône-et-Loire"
+
+	# The path must be relative to the static folder
+	favicon = "favicon.ico"
+
+
+	# Navigation
+	[params.navigation]
+		brand = "Gilets Jaunes 71"
+
+		[params.navigation.links]
+			about     = "Qui sommes-nous ?"
+			services  = "Nous rejoindre"
+			portfolio = "Nos luttes"
+			agenda = "Agenda des actions"
+			newsletter = "NewsLetter"
+			press = "Presse"
+			contact   = "Nous contacter"
+			donnation = "Faire un don"
+
+	# Hero section
+	[params.hero]
+		# To change the background of the hero section, replace the 'header.jpg' at './static/img' with your own.
+		slogan     = "Par le peuple, pour le peuple !"
+		subtitle   = "Site d'information et de coordination des [gilets jaunes](/#about) de Saône-et-Loire"
+		buttonText = "A propos"
+
+
+	# About section
+	[params.about]
+		headline    = "Qui sommes-nous ?"
+		description = "Né le 17 novembre 2018 d’une initiative citoyenne, le mouvement Gilets Jaunes est résolument apolitique, à l’écart des syndicats. Il prône la non-violence et le respect des personnes. Ce mouvement épouse les valeurs fondatrices de la République française: Liberté, Égalité, Fraternité."
+		buttonText  = "Rejoindre"
+		more = "Nous proposons via ce site différents outils (dont ce site lui-même) d'intérêt commun afin de faciliter la coordination des différents groupes de Gilets Jaunes du département Saône-et-Loire. Vous pouvez retrouver sur cette page les actions et comptes-rendus des différents groupes de GJ par secteur, ainsi que différents articles, liens, cartes, ..."
+
+
+	# Service section
+	[params.services]
+		headline = "Nous rejoindre"
+
+        [[params.services.list]]
+            icon = "fa-facebook"
+            title = "Facebook"
+            description = "Retrouvez les dernières actualités en rejoignant le groupe facebook des GJ de Saône-et-Loire."
+            link = "https://www.facebook.com/groups/1067788636729213/"
+
+        [[params.services.list]]
+			#icon = "fa-discord"
+			#title = "Discord"
+			#description = "Notre Discord"
+			#link = "https://discord.gg/DwccwUH"
+
+		[[params.services.list]]
+      #      icon = "fa-newspaper-o"
+      #      title = "Up to Date"
+      #      description = "We update dependencies to keep things fresh."
+
+        [[params.services.list]]
+            icon = "fa-discord"
+            title = "Discord"
+            description = "Le Discord des GJ de Saône-et-Loire. Salon de discussion par thématique, préparation d'AG, etc."
+            link = "https://discord.gg/DwccwUH"
+
+
+    # Portfolio modals
+	[params.portfolio.modal]
+        client = "Client"
+        date = "Date"
+        category = "Category"
+        buttonText = "Close"
+
+    # Aside section
+	[params.aside]
+		headline = "Carte des groupes gilets jaunes"
+
+		[params.aside.button]
+			text = "Accéder à la carte"
+			link = "//www.giletsjaunes-coordination.fr/carte.html"
+
+	# Contact section
+	[params.contact]
+		headline = "Nous contacter"
+		description = "Vous rencontrez un problème ? Vous souhaitez nous signaler une faille de sécurité ? Vous pouvez contacter un administrateur à cette adresse. Pour les questions concernant le mouvement des Gilets Jaunes, nous ne pouvons que vous recommander de vous rendre sur l'un des nombreux lieux de rassemblement de GJ."
+		#phone = "123-456-6789"
+		email = "gilets-jaunes71@protonmail.com"
+
+	 #Google Maps section
+	 #[params.location]
+	 	#latitude  = "34.007850"
+	 	#longitude = "-118.499305"
+	 	#maps_api_key = "CHANGE_ME"
+
+
+[params.agenda]
+	title = "Agenda des actions"
+	cal_id = "CHANGE_ME@group.calendar.google.com"
+	cal_api_key = "CHANGE_ME"
+
+[params.newsletter]
+	title = "Newsletter"
+	url = "https://mailtrain.gilets-jaunes71.fr/subscription/-ubD99S0u"
+	widget = "https://mailtrain.gilets-jaunes71.fr/subscription/-ubD99S0u/widget"
+
+
+[params.press]
+		"03/01/2019-1" = "prefet-03012019.pdf"
+		"03/01/2019-2" = "dupe-03012019.pdf"
+		"04/01/2019-1" = "revenus-04012019.pdf"
+		"04/01/2019-2" = "carburant-04012019.pdf"
+		"06/01/2019" = "egoisme-06122019.pdf"
+		"30/01/2019" = "apaisement.pdf"
+

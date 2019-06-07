@@ -1,0 +1,126 @@
+{{ "<!-- jQuery -->" | safeHTML }}
+<script src="{{ "js/jquery.js" | absURL }}"></script>
+{{ "<!-- Bootstrap Core JavaScript -->" | safeHTML }}
+<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+{{ "<!-- Plugin JavaScript -->" | safeHTML }}
+<script src="{{ "js/jquery.easing.min.js" | absURL }}"></script>
+<script src="{{ "js/jquery.fittext.js" | absURL }}"></script>
+<script src="{{ "js/wow.min.js" | absURL }}"></script>
+{{ if .Site.Params.location }}
+<script src="//maps.googleapis.com/maps/api/js?key={{ .Site.Params.location.maps_api_key }}&v=3.exp"></script>
+<script src="{{ "js/hpneo.gmaps.js" | absURL }}"></script>
+<script src="{{ "js/gmaps.init.js" | absURL }}"></script>
+{{ end }}
+{{ if .Site.Params.agenda }}
+<script src="{{ "fullcalendar/lib/moment.min.js" | absURL }}"></script>
+<script src="{{ "fullcalendar/fullcalendar.js" | absURL }}"></script>
+<script src="{{ "fullcalendar/locale/fr.js" | absURL }}"></script>
+<script src="{{ "fullcalendar/gcal.js" | absURL }}"></script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=2139478049699939&autoLogAppEvents=1"></script>
+
+{{ end }}
+{{ if.Site.Params.newsletter }}
+<script src="{{ .Site.Params.newsletter.url }}"></script>
+{{ end }}
+{{ "<!-- Custom Theme JavaScript -->" | safeHTML }}
+<script src="{{ "js/creative.js" | absURL }}"></script>
+
+<script>
+      $(function() {
+      
+         // page is now ready, initialize the calendar...
+
+         /*$('#calendar').hide();
+
+         $('#cal_hide').click(function() {
+            $('#calendar').hide();
+         });
+         $('#cal_show').click(function() {
+            $('#calendar').show();
+         });*/
+      
+
+         $('#calendar').fullCalendar({
+            //options and callbacks
+            locale: 'fr',
+            isRTL: false,
+            /*events: [
+               {
+                  title  : 'event1',
+                  start  : '2019-01-01',
+                  end: '2019-01-02'
+               },
+               {
+                  title  : 'event2',
+                  start  : '2019-01-05',
+                  end    : '2019-01-07'
+               },
+               {
+                  title  : 'event3',
+                  start  : '2019-01-09T12:30:00',
+                  allDay : false // will make the time show
+               }
+            ],*/
+            googleCalendarApiKey: '{{ .Site.Params.agenda.cal_api_key }}',
+            events: {
+                  {{ if .Params.agenda }}
+                  googleCalendarId: '{{ .Params.agenda }}'
+
+                  {{ else }}
+                  googleCalendarId: '{{ .Site.Params.agenda.cal_id }}'
+
+                  {{ end }}
+            },
+            eventClick: function(event) {
+               if (event.url) {
+                  window.open(event.url);
+                  return false;
+               }
+            }
+         })
+
+         $('#calendar').fullCalendar('changeView', 'listWeek');
+
+      });
+
+
+
+      $(document).ready(function(){
+
+            $("#Slider_Content").fadeIn(500);
+            $("#1").fadeIn(500);
+
+            $("#controle1").click(function(e){
+                  $("#1").fadeIn();
+                  $("#2").fadeOut();
+                  $("#3").fadeOut();
+                  $("#4").fadeOut();
+            });
+
+            $("#controle2").click(function(e){
+                  $("#1").fadeOut();
+                  $("#2").fadeIn();
+                  $("#3").fadeOut();
+                  $("#4").fadeOut();
+            });
+
+            $("#controle3").click(function(e){
+                  $("#1").fadeOut();
+                  $("#2").fadeOut();
+                  $("#3").fadeIn();
+                  $("#4").fadeOut();
+            });
+
+            $("#controle4").click(function(e){
+                  $("#1").fadeOut();
+                  $("#2").fadeOut();
+                  $("#3").fadeOut();
+                  $("#4").fadeIn();
+            });
+
+      });
+
+      
+</script>

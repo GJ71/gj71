@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    <head>
+      {{ partial "head.html" . }}
+   </head>  
+
+   <body id="page-top">
+      {{ if eq .Title "Archives" }}
+
+        {{ partial "nav_archives.html" . }}
+
+        {{ partial "archives.html" . }}
+
+
+      {{ else }}
+
+        {{ if or .Site.Params.navigation.links.about .Site.Params.navigation.links.services .Site.Params.navigation.links.portfolio .Site.Params.navigation.links.contact }}
+          {{ partial "nav_post.html" . }}
+        {{ end }}
+
+
+        {{ partial "about_post.html" . }}
+
+        {{ partial "actions_post.html" . }}
+
+        {{ partial "agenda_post.html" . }}
+
+        {{ partial "cr_post.html" . }}
+
+
+        {{ partial "videos_post.html" . }}
+
+        {{ partial "location_post.html" . }}
+
+      {{ end }}
+
+
+      {{ if .Site.Params.newsletter }}
+        {{ partial "newsletter.html" . }}
+      {{ end }}
+
+      {{ if .Site.Params.aside }}
+        {{ partial "aside.html" . }}
+      {{ end }}
+
+      {{ if .Site.Params.contact }}
+         {{ partial "contact.html" . }}
+      {{ end }}
+
+
+      {{ partial "js.html" . }}
+
+   </body>
+</html>
